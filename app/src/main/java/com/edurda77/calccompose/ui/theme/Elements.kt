@@ -15,6 +15,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.edurda77.calccompose.domain.CalculatorAction
 import com.edurda77.calccompose.domain.Operation
+import com.edurda77.calccompose.domain.OperationOneNumber
 
 @Composable
 fun CreateRowButton() {
@@ -53,6 +54,19 @@ fun CreateColumnButton1() {
         verticalArrangement = Arrangement.Top,
         horizontalAlignment = Alignment.Start
     ) {
+        Box(
+            contentAlignment = Alignment.Center,
+            modifier = Modifier
+                .weight(1f)
+                .height(100.dp)
+        ) {
+            CreateButton(
+                colorButton = md_theme_light_surfaceTint,
+                colorTextButton = Color.White,
+                nameButton = "%",
+                calculationAction = CalculatorAction.CalculatePercent
+            )
+        }
         Box(
             contentAlignment = Alignment.Center,
             modifier = Modifier
@@ -114,7 +128,7 @@ fun CreateColumnButton1() {
             CreateButton(
                 colorButton = Color.White,
                 colorTextButton = Color.Black,
-                nameButton = "%",
+                nameButton = "+/-",
                 calculationAction = CalculatorAction.CalculatePercent
             )
         }
@@ -128,6 +142,19 @@ fun CreateColumnButton2() {
         verticalArrangement = Arrangement.Top,
         horizontalAlignment = Alignment.Start
     ) {
+        Box(
+            contentAlignment = Alignment.Center,
+            modifier = Modifier
+                .weight(1f)
+                .height(100.dp)
+        ) {
+            CreateButton(
+                colorButton = md_theme_light_surfaceTint,
+                colorTextButton = Color.White,
+                nameButton = "1/x",
+                calculationAction = CalculatorAction.OpOne(OperationOneNumber.DivideUnit)
+            )
+        }
         Box(
             contentAlignment = Alignment.Center,
             modifier = Modifier
@@ -210,6 +237,19 @@ fun CreateColumnButton3() {
                 .height(100.dp)
         ) {
             CreateButton(
+                colorButton = md_theme_light_surfaceTint,
+                colorTextButton = Color.White,
+                nameButton = "x\u00B2",
+                calculationAction = CalculatorAction.OpOne(OperationOneNumber.Qrt)
+            )
+        }
+        Box(
+            contentAlignment = Alignment.Center,
+            modifier = Modifier
+                .weight(1f)
+                .height(100.dp)
+        ) {
+            CreateButton(
                 colorButton = md_theme_dark_onTertiaryContainer,
                 colorTextButton = md_theme_light_surfaceTint,
                 nameButton = "x",
@@ -278,6 +318,19 @@ fun CreateColumnButton4() {
         verticalArrangement = Arrangement.Top,
         horizontalAlignment = Alignment.Start
     ) {
+        Box(
+            contentAlignment = Alignment.Center,
+            modifier = Modifier
+                .weight(1f)
+                .height(100.dp)
+        ) {
+            CreateButton(
+                colorButton = md_theme_light_surfaceTint,
+                colorTextButton = Color.White,
+                nameButton = "\u221Ax",
+                calculationAction = CalculatorAction.OpOne(OperationOneNumber.Sqrt)
+            )
+        }
         Box(
             contentAlignment = Alignment.Center,
             modifier = Modifier

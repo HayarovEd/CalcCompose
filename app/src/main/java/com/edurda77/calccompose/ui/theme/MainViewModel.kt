@@ -7,8 +7,10 @@ import androidx.lifecycle.ViewModel
 import com.edurda77.calccompose.domain.CalculatorAction
 import com.edurda77.calccompose.domain.Operation
 import com.edurda77.calccompose.domain.CalculatorState
+import com.edurda77.calccompose.domain.OperationOneNumber
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
+import kotlin.math.sqrt
 
 @HiltViewModel
 class MainViewModel @Inject constructor() : ViewModel() {
@@ -23,6 +25,27 @@ class MainViewModel @Inject constructor() : ViewModel() {
             is CalculatorAction.Decimal -> enterDecimal()
             is CalculatorAction.Calculate -> calculate()
             is CalculatorAction.CalculatePercent -> calculatePercent()
+            is CalculatorAction.OpOne -> calculateOne(action.operationOne)
+        }
+    }
+
+    private fun calculateOne(operationOne: OperationOneNumber) {
+        if(state.number1.isNotBlank()) {
+            state = state.copy(operationOne = operationOne)
+        }
+        val number1 = state.number1.toDoubleOrNull()
+        if(number1 != null) {
+            val result = when(state.operationOne) {
+                is OperationOneNumber.DivideUnit -> 1/number1
+                is OperationOneNumber.Qrt -> number1*number1
+                is OperationOneNumber.Sqrt -> sqrt(number1)
+                null -> return
+            }
+            state = state.copy(
+                number1 = result.toString().take(15),
+                number2 = "",
+                operationOne = null
+            )
         }
     }
 
