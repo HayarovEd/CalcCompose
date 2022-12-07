@@ -340,7 +340,7 @@ fun CreateColumnButton4() {
             CreateButton(
                 colorButton = md_theme_dark_onTertiaryContainer,
                 colorTextButton = md_theme_light_surfaceTint,
-                nameButton = "BC",
+                nameButton = "\u232B",
                 calculationAction = CalculatorAction.Delete
             )
         }
