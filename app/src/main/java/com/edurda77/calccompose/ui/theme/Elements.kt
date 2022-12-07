@@ -13,9 +13,11 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.edurda77.calccompose.domain.CalculatorAction
+import com.edurda77.calccompose.domain.Operation
 
 @Composable
-fun CreateRowButton(){
+fun CreateRowButton() {
     Row(modifier = Modifier.fillMaxWidth()) {
         Box(
             modifier = Modifier
@@ -43,6 +45,7 @@ fun CreateRowButton(){
         }
     }
 }
+
 @Composable
 fun CreateColumnButton1() {
     Column(
@@ -59,7 +62,8 @@ fun CreateColumnButton1() {
             CreateButton(
                 colorButton = md_theme_dark_onTertiaryContainer,
                 colorTextButton = md_theme_light_surfaceTint,
-                nameButton = "C"
+                nameButton = "C",
+                calculationAction = CalculatorAction.Clear
             )
         }
         Box(
@@ -71,7 +75,8 @@ fun CreateColumnButton1() {
             CreateButton(
                 colorButton = Color.White,
                 colorTextButton = Color.Black,
-                nameButton = "7"
+                nameButton = "7",
+                calculationAction = CalculatorAction.Number(7)
             )
         }
         Box(
@@ -83,7 +88,8 @@ fun CreateColumnButton1() {
             CreateButton(
                 colorButton = Color.White,
                 colorTextButton = Color.Black,
-                nameButton = "4"
+                nameButton = "4",
+                calculationAction = CalculatorAction.Number(4)
             )
         }
         Box(
@@ -95,7 +101,8 @@ fun CreateColumnButton1() {
             CreateButton(
                 colorButton = Color.White,
                 colorTextButton = Color.Black,
-                nameButton = "1"
+                nameButton = "1",
+                calculationAction = CalculatorAction.Number(1)
             )
         }
         Box(
@@ -107,7 +114,8 @@ fun CreateColumnButton1() {
             CreateButton(
                 colorButton = Color.White,
                 colorTextButton = Color.Black,
-                nameButton = "%"
+                nameButton = "%",
+                calculationAction = CalculatorAction.CalculatePercent
             )
         }
     }
@@ -129,7 +137,8 @@ fun CreateColumnButton2() {
             CreateButton(
                 colorButton = md_theme_dark_onTertiaryContainer,
                 colorTextButton = md_theme_light_surfaceTint,
-                nameButton = "/"
+                nameButton = "/",
+                calculationAction = CalculatorAction.Op(Operation.Divide)
             )
         }
         Box(
@@ -141,7 +150,8 @@ fun CreateColumnButton2() {
             CreateButton(
                 colorButton = Color.White,
                 colorTextButton = Color.Black,
-                nameButton = "8"
+                nameButton = "8",
+                calculationAction = CalculatorAction.Number(8)
             )
         }
         Box(
@@ -153,7 +163,8 @@ fun CreateColumnButton2() {
             CreateButton(
                 colorButton = Color.White,
                 colorTextButton = Color.Black,
-                nameButton = "5"
+                nameButton = "5",
+                calculationAction = CalculatorAction.Number(5)
             )
         }
         Box(
@@ -165,7 +176,8 @@ fun CreateColumnButton2() {
             CreateButton(
                 colorButton = Color.White,
                 colorTextButton = Color.Black,
-                nameButton = "2"
+                nameButton = "2",
+                calculationAction = CalculatorAction.Number(2)
             )
         }
         Box(
@@ -177,7 +189,8 @@ fun CreateColumnButton2() {
             CreateButton(
                 colorButton = Color.White,
                 colorTextButton = Color.Black,
-                nameButton = "0"
+                nameButton = "0",
+                calculationAction = CalculatorAction.Number(0)
             )
         }
     }
@@ -199,7 +212,8 @@ fun CreateColumnButton3() {
             CreateButton(
                 colorButton = md_theme_dark_onTertiaryContainer,
                 colorTextButton = md_theme_light_surfaceTint,
-                nameButton = "*"
+                nameButton = "x",
+                calculationAction = CalculatorAction.Op(Operation.Multiply)
             )
         }
         Box(
@@ -211,7 +225,8 @@ fun CreateColumnButton3() {
             CreateButton(
                 colorButton = Color.White,
                 colorTextButton = Color.Black,
-                nameButton = "9"
+                nameButton = "9",
+                calculationAction = CalculatorAction.Number(9)
             )
         }
         Box(
@@ -223,7 +238,8 @@ fun CreateColumnButton3() {
             CreateButton(
                 colorButton = Color.White,
                 colorTextButton = Color.Black,
-                nameButton = "6"
+                nameButton = "6",
+                calculationAction = CalculatorAction.Number(6)
             )
         }
         Box(
@@ -235,7 +251,8 @@ fun CreateColumnButton3() {
             CreateButton(
                 colorButton = Color.White,
                 colorTextButton = Color.Black,
-                nameButton = "3"
+                nameButton = "3",
+                calculationAction = CalculatorAction.Number(3)
             )
         }
         Box(
@@ -247,7 +264,8 @@ fun CreateColumnButton3() {
             CreateButton(
                 colorButton = Color.White,
                 colorTextButton = Color.Black,
-                nameButton = ","
+                nameButton = ",",
+                calculationAction = CalculatorAction.Decimal
             )
         }
     }
@@ -269,7 +287,8 @@ fun CreateColumnButton4() {
             CreateButton(
                 colorButton = md_theme_dark_onTertiaryContainer,
                 colorTextButton = md_theme_light_surfaceTint,
-                nameButton = "BC"
+                nameButton = "BC",
+                calculationAction = CalculatorAction.Delete
             )
         }
         Box(
@@ -281,7 +300,8 @@ fun CreateColumnButton4() {
             CreateButton(
                 colorButton = md_theme_dark_onTertiaryContainer,
                 colorTextButton = md_theme_light_surfaceTint,
-                nameButton = "-"
+                nameButton = "-",
+                calculationAction = CalculatorAction.Op(Operation.Subtract)
             )
         }
         Box(
@@ -293,7 +313,8 @@ fun CreateColumnButton4() {
             CreateButton(
                 colorButton = md_theme_dark_onTertiaryContainer,
                 colorTextButton = md_theme_light_surfaceTint,
-                nameButton = "+"
+                nameButton = "+",
+                calculationAction = CalculatorAction.Op(Operation.Add)
             )
         }
         Box(
@@ -305,7 +326,8 @@ fun CreateColumnButton4() {
             CreateButton(
                 colorButton = md_theme_light_surfaceTint,
                 colorTextButton = Color.White,
-                nameButton = "="
+                nameButton = "=",
+                calculationAction = CalculatorAction.Calculate
             )
         }
     }
@@ -313,7 +335,13 @@ fun CreateColumnButton4() {
 
 
 @Composable
-fun CreateButton(colorButton: Color, colorTextButton: Color, nameButton: String) {
+fun CreateButton(
+    colorButton: Color,
+    colorTextButton: Color,
+    nameButton: String,
+    calculationAction: CalculatorAction,
+    viewModel: MainViewModel = androidx.lifecycle.viewmodel.compose.viewModel()
+) {
     Button(
         modifier = Modifier
             .clip(
@@ -322,7 +350,9 @@ fun CreateButton(colorButton: Color, colorTextButton: Color, nameButton: String)
             .fillMaxSize(),
         colors = ButtonDefaults.buttonColors(backgroundColor = colorButton),
         border = BorderStroke(1.dp, color = Color.Gray),
-        onClick = { /*TODO*/ }) {
+        onClick = {
+            viewModel.onAction(calculationAction)
+        }) {
         Text(
             text = nameButton,
             color = colorTextButton,
