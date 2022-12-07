@@ -1,7 +1,7 @@
 package com.edurda77.calccompose.domain
 
-sealed class OperationOneNumber (val symbol: String) {
-    object DivideUnit: OperationOneNumber("1/x")
-    object Qrt: OperationOneNumber("x²")
-    object Sqrt: OperationOneNumber("√x")
+sealed interface OperationOneNumber {
+    object DivideUnit: OperationOneNumber
+    object Qrt: OperationOneNumber
+    object Sqrt: OperationOneNumber
 }

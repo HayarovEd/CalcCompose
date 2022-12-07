@@ -26,6 +26,23 @@ class MainViewModel @Inject constructor() : ViewModel() {
             is CalculatorAction.Calculate -> calculate()
             is CalculatorAction.CalculatePercent -> calculatePercent()
             is CalculatorAction.OpOne -> calculateOne(action.operationOne)
+            is CalculatorAction.Negative -> enterNegative()
+        }
+    }
+
+    private fun enterNegative() {
+        if(state.operation == null  && state.number1.isNotBlank()) {
+            if (!state.number1.startsWith("-")) {
+                state = state.copy(
+                    number1 = "-" + state.number1
+                )
+                return
+            } else {
+                state = state.copy(
+                    number1 = state.number1.substring(1)
+                )
+                return
+            }
         }
     }
 

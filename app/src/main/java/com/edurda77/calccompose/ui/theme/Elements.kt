@@ -129,7 +129,7 @@ fun CreateColumnButton1() {
                 colorButton = Color.White,
                 colorTextButton = Color.Black,
                 nameButton = "+/-",
-                calculationAction = CalculatorAction.CalculatePercent
+                calculationAction = CalculatorAction.Negative
             )
         }
     }
